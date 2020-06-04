@@ -1,0 +1,15 @@
+#!/bin/bash
+while read oldrev newrev ref
+do
+	if [[ $ref =~ .*/master$ ]];
+	then
+	echo "Master ref received.  Deploying master branch to production..."
+	git --work-tree=/home/townes/controllaser.com/wp-content/themes/flexia-child --git-dir=/home/townes/git/flexia-child.git checkout -f master
+	fi
+	
+	if [[ $ref =~ .*/develop$ ]];
+	then
+		echo "Develop ref received.  Deploying develop branch to staging..."
+		git --work-tree=/home/townes/controllaser.com/wp-content/themes/flexia-child --git-dir=/home/townes/git/flexia-child.git checkout -f develop
+	fi
+done
