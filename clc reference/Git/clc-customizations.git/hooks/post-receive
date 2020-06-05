@@ -1,9 +1,0 @@
-#!/bin/bash
-while read oldrev newrev ref
-do 
-	if [[ $ref =~ .*/master$ ]];
-    then
-	echo "Master ref received.  Deploying master branch to production..."
-	git --work-tree=/home/townes/controllaser.com/wp-content/plugins/clccustomizations --git-dir=/home/townes/git/clc-customizations.git checkout -f master
-    fi
-done
