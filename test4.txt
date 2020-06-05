@@ -1,1 +1,2 @@
 This is new test for conflict resolve.
+it
